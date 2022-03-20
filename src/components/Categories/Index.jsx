@@ -1,5 +1,6 @@
 import React from "react";
 import Category from "../Category/Index";
+import "./Styles.scss";
 
 const Categories = ({ categories }) => {
   return (
