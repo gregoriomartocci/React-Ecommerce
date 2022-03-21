@@ -1,9 +1,7 @@
-
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./Components/Navigation/Index";
 import Shop from "./Components/Shop/Index";
 import Home from "./Views/Home/Index";
-
 
 const App = () => {
   return (
