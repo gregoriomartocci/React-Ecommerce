@@ -5,8 +5,8 @@ import "./Styles.scss";
 const Categories = ({ categories }) => {
   return (
     <div className="categories-container">
-      {categories.map((category) => (
-        <Category category={category} />
+      {categories.map((category, index) => (
+        <Category key={index} category={category} />
       ))}
     </div>
   );
