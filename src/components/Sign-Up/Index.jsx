@@ -1,10 +1,11 @@
 import { useState } from "react";
-import "./Styles.scss"
+import "./Styles.scss";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../Utils/Firebase/firebase.utils";
 import FormInput from "../Form-Input/Index";
+import Button from "../Button/Index";
 
 const defaultFormFields = {
   displayName: "",
@@ -90,7 +91,9 @@ const SignUpFom = () => {
           required
         />
 
-        <button type="submit">Sign Up</button>
+        <Button buttonType="inverted" type="submit">
+          Sign Up
+        </Button>
       </form>
     </div>
   );
