@@ -1,10 +1,7 @@
-import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-} from "../../Utils/Firebase/firebase.utils";
-
 import SignUpFom from "../../Components/Sign-Up/Index";
 import SignInForm from "../../Components/Sign-In/Index";
+
+import "./Styles.scss"
 
 const Authentication = () => {
   // useCallback(async () => {
@@ -20,12 +17,12 @@ const Authentication = () => {
   //   console.log({ user });
   // };
 
-
   return (
     <div>
-      <div>Sign In Page</div>
-      <SignInForm />
-      <SignUpFom />
+      <div className="authentication-container">
+        <SignInForm />
+        <SignUpFom />
+      </div>
     </div>
   );
 };

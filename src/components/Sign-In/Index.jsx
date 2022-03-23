@@ -4,7 +4,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
   signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword
+  signInAuthUserWithEmailAndPassword,
 } from "../../Utils/Firebase/firebase.utils";
 import FormInput from "../Form-Input/Index";
 import Button from "../Button/Index";
@@ -36,10 +36,29 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email,password)
-      console.log(response)
+      const response = await signInAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+      console.log(response);
       resetFormFields();
-    } catch (error) {}
+    } catch (error) {
+
+      switch (error.code) {
+        case "auth/wrong-password":
+          console.log("incorrect Password for email");
+          return "Incorrect Password for email";
+          break;
+        case "auth/user-not-found":
+          console.log("No user associated with this email");
+          return "No user associated with this emai";
+          break;
+        default:
+          console.log(error);
+      }
+
+
+    }
   };
 
   return (
@@ -69,15 +88,10 @@ const SignInForm = () => {
           <Button buttonType="inverted" type="submit">
             Sign In
           </Button>
-          <Button
-            buttonType="google"
-            onClick={signInWithGoogle}
-            type="submit"
-          >
+          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
             Google sign in
           </Button>
         </div>
-
       </form>
     </div>
   );
