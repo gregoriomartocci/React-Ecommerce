@@ -1,11 +1,6 @@
 import { useState } from "react";
 import "./Styles.scss";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword,
-} from "../../Utils/Firebase/firebase.utils";
+import { createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../../Utils/Firebase/Index";
 import FormInput from "../Form-Input/Index";
 import Button from "../Button/Index";
 
@@ -24,8 +19,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const resetFormFields = () => {
@@ -36,28 +30,24 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
-      resetFormFields();
-    } catch (error) {
 
+      resetFormFields();
+
+    } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
           console.log("incorrect Password for email");
           return "Incorrect Password for email";
-          break;
         case "auth/user-not-found":
           console.log("No user associated with this email");
           return "No user associated with this emai";
-          break;
         default:
           console.log(error);
       }
-
-
     }
   };
 

@@ -1,9 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Styles.scss";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../Utils/Firebase/firebase.utils";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, } from "../../Utils/Firebase/Index";
 import FormInput from "../Form-Input/Index";
 import Button from "../Button/Index";
 
@@ -40,8 +37,6 @@ const SignUpFom = () => {
         password
       );
 
-      console.log(user);
-
       await createUserDocumentFromAuth(user, { displayName });
 
       resetFormFields();
@@ -51,7 +46,7 @@ const SignUpFom = () => {
 
       console.log("Something went wrong", error);
     }
-  };
+  }; 
 
   return (
     <div className="sign-up-container">
