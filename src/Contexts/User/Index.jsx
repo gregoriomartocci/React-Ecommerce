@@ -1,8 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import {
-  createUserDocumentFromAuth,
-  onAuthStateChangedListener,
-} from "../../Utils/Firebase/Index";
+import { createUserDocumentFromAuth, onAuthStateChangedListener, } from "../../Utils/Firebase/Index";
 
 export const UserContext = createContext({
   currentUser: null,
@@ -26,3 +23,4 @@ export const UserProvider = ({ children }) => {
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
+
