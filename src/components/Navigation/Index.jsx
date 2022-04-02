@@ -9,11 +9,8 @@ import CartIcon from "../Cart-Icon/Index";
 
 import "./Styles.scss";
 
-
-
-
 const Navigation = () => {
-  const { cartItems, isCartOpen, cartCount } = useContext(CartContext);
+  const { isCartOpen, cartCount } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
 
   return (

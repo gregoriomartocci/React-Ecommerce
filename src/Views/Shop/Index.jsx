@@ -6,12 +6,11 @@ import { ProductsContext } from "../../Contexts/Products";
 
 const Shop = () => {
   const { products } = useContext(ProductsContext);
-  console.log(products[0]);
 
   return (
     <div className="products-container">
       {products?.map((product) => (
-        <Product product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );
