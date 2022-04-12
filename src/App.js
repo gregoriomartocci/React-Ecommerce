@@ -5,7 +5,6 @@ import Authentication from "./Views/Authentication/Index";
 import Shop from "./Views/Shop/Index";
 import Checkout from "./Views/Checkout/Index";
 
-
 const App = () => {
   return (
     <Routes>

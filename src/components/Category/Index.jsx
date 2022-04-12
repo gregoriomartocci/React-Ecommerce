@@ -1,4 +1,4 @@
-import "./Style.scss";
+import "./Styles.scss";
 
 const Category = ({ category }) => {
     
