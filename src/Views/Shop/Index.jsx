@@ -1,26 +1,14 @@
-import React, { Fragment } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./Styles.scss";
-import Product from "../../Components/Product/Index";
-import { useContext } from "react";
-import { CategoriesContext } from "../../Contexts/Categories";
-import CategoryPreview from "../../Components/Category-Preview/Index";
+import CategoriesPreview from "../Categories-Preview/Index";
+import Category from "../Category/Index";
 
 const Shop = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
-
-  console.log("categoriesMap", categoriesMap);
-
   return (
-    <div className="shop-container">
-      {Object.keys(categoriesMap).map((title) => {
-        const products = categoriesMap[title];
-
-        console.log(title)
-        return (
-          <CategoryPreview key={title} title={title} products={products} />
-        );
-      })}
-    </div>
+    <Routes>
+      <Route index element={<CategoriesPreview />} />
+      <Route path=":category" element={<Category />} />
+    </Routes>
   );
 };
 

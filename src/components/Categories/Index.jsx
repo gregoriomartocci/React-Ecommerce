@@ -1,5 +1,5 @@
 import React from "react";
-import Category from "../Category/Index";
+import Category from "../Directory/Index";
 import "./Styles.scss";
 
 const Categories = ({ categories }) => {
