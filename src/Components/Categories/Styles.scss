@@ -1,0 +1,13 @@
+.categories-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+
+  title {
+    font-size: 10px;
+    margin-bottom: 15px;
+    
+  }
+}
