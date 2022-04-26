@@ -1,8 +1,12 @@
 import { useState } from "react";
 import "./Styles.scss";
-import { createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../../Utils/Firebase/Index";
+import {
+  createUserDocumentFromAuth,
+  signInWithGooglePopup,
+  signInAuthUserWithEmailAndPassword,
+} from "../../Utils/Firebase/Index";
 import FormInput from "../Form-Input/Index";
-import Button from "../Button/Index";
+import Button, { BUTTON_TYPE_CLASSES } from "../Button/Index";
 
 const defaultFormFields = {
   email: "",
@@ -36,7 +40,6 @@ const SignInForm = () => {
       );
 
       resetFormFields();
-
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -75,10 +78,14 @@ const SignInForm = () => {
         />
 
         <div className="buttons-container">
-          <Button buttonType="inverted" type="submit">
+          <Button buttonType={BUTTON_TYPE_CLASSES.inverted} type="submit">
             Sign In
           </Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}
+          >
             Google sign in
           </Button>
         </div>
