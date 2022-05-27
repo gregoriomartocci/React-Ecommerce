@@ -6,7 +6,7 @@ import Shop from "./Views/Shop/Index";
 import Checkout from "./Views/Checkout/Index";
 import { useEffect } from "react";
 import { createUserDocumentFromAuth, onAuthStateChangedListener } from "./Utils/Firebase/Index";
-import { setCurrentUser } from "./Store/User/User-Reducer";
+import { setCurrentUser } from "./Store/Slices/Users/Index";
 import { useDispatch } from "react-redux";
 
 const App = () => {
